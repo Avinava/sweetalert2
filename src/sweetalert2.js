@@ -848,12 +848,10 @@ const sweetAlert = (...args) => {
 
       // set attributes
       if (input) {
-        for (let j in input.attributes) {
-          if (input.attributes.hasOwnProperty(j)) {
-            const attrName = input.attributes[j].name
-            if (attrName !== 'type' && attrName !== 'value') {
-              input.removeAttribute(attrName)
-            }
+        for (let j of Object.keys(input.attributes)) {
+          const attrName = input.attributes[j].name
+          if (attrName !== 'type' && attrName !== 'value') {
+            input.removeAttribute(attrName)
           }
         }
         for (let attr in params.inputAttributes) {
