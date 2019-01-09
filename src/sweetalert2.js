@@ -889,7 +889,7 @@ const sweetAlert = (...args) => {
     openModal(params.animation, params.onOpen)
 
     if (!params.allowEnterKey) {
-      if (document.activeElement) {
+      if (document.activeElement && document.activeElement.blur) {
         document.activeElement.blur()
       }
     } else if (params.focusCancel && dom.isVisible(cancelButton)) {
